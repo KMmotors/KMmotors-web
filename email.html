@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name = "viewport" content ="width=device-width,initial-scale=1.0">
+        <title>CONTACT US</title>
+        <link rel="stylesheet"href="style2.css">
+    </head>
+    <body>
+        <div class="container">
+            <form onsubmit="sendEmail();reset();return false;">
+                <h2>STAY CONNECTED</h2>
+                <input type="text"id="name" placeholder="NAME" required>
+                <input type="Email" id="Email" placeholder="Email ID" required>
+                <textarea id="message"  rows="4" placeholder="WHAT HAPPENED..?"></textarea>
+                <button type="Submit">GO</button>
+
+            </form>
+            
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendEmail(){
+                Email.send({
+    SecureToken: "e3a9fa98-d0b0-46a2-b47e-8672ec40e9f0",
+    To : 'karthikvenkatramankv@gmail.com',
+    From : document.getElementById("Email").value,
+    Subject : "This is the subject",
+    Body : "Name" + document.getElementById("NAME").value
+    + "<br>Email" + document.getElementById("Email ID").value
+    + "<br>message" +document.getElementById("WHAT HAPPENED").value
+}).then(
+  message => alert("THANK YOU")
+);
+            }
+        </script>
+    </body>
+</html>
